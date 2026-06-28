@@ -1,6 +1,8 @@
 .nav{
     display: flex;
+    align-items: center;
     margin-left: auto;
+    gap: 30px;
 }
 .nav__text{
     cursor: pointer;
@@ -11,26 +13,34 @@
     opacity: 70%;
 }
 .nav__button-signin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     margin: auto 0;
-    background: none;
+    background: transparent;
     width: 130px;
     height: 40px;
+    border: 1px solid #fff;
     border-radius: 30px;
+    color:white
 }
 .nav__button-logout{
-    cursor: pointer;
-    background: none;
-    width: auto;
-    margin: auto;
-    height: 40px;
-    border-radius: 30px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: transparent;
+    width: auto;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    color: white;
 }
 .nav__button-logout:hover{
     opacity: 70%;
 }
 .nav__button-image{
     margin:5px 5px 0;
-    width: 10px;
+    width: 15px;
 }
