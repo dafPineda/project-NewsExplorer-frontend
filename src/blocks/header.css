@@ -1,0 +1,9 @@
+.header{
+    margin:40px 80px
+}
+.header__block{
+    display: flex;
+}
+.header__title{
+    font-size: 30px;
+}

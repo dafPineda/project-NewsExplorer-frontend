@@ -1,0 +1,33 @@
+.nav{
+    display: flex;
+    margin-left: auto;
+}
+.nav__text{
+    margin: auto;
+    margin-right: 30px;
+}
+.nav__text:hover{
+    opacity: 70%;
+}
+.nav__button-signin{
+    margin: auto 0;
+    background: none;
+    width: 130px;
+    height: 40px;
+    border-radius: 30px;
+}
+.nav__button-logout{
+    background: none;
+    width: auto;
+    margin: auto;
+    height: 40px;
+    border-radius: 30px;
+    justify-content: center;
+}
+.nav__button-logout:hover{
+    opacity: 70%;
+}
+.nav__button-image{
+    margin:5px 5px 0;
+    width: 10px;
+}
