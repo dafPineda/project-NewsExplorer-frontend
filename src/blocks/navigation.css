@@ -2,12 +2,12 @@
     display: flex;
     align-items: center;
     margin-left: auto;
-    gap: 30px;
+    gap: 10px;
 }
 .nav__text{
     cursor: pointer;
     margin: auto;
-    margin-right: 30px;
+    gap: 10px;
 }
 .nav__text:hover{
     opacity: 70%;
@@ -22,7 +22,7 @@
     width: 130px;
     height: 40px;
     border: 1px solid #fff;
-    border-radius: 30px;
+    border-radius: 20px;
     color:white
 }
 .nav__button-logout{

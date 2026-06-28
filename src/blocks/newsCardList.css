@@ -40,6 +40,9 @@
     cursor: pointer;
     position: relative;
 }
+.card:hover{
+    box-shadow: 1px 16px 47px #00000040;
+}
 .card__flag{
     background-image: url("../images/flagNormal.png");
     position: absolute;
@@ -105,7 +108,8 @@
     color:#B6BCBF;
     margin: 0;
     width: 220px;
-    position:relative
+    position:relative;
+    text-align: center;
 }
 
 .preloader{
