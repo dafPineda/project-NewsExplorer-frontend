@@ -1,9 +1,17 @@
 .header{
-    margin:40px 80px
+    margin:40px 80px;
+    color:#fff;
 }
 .header__block{
     display: flex;
 }
 .header__title{
     font-size: 30px;
+}
+.header__image{
+    margin: 0;
+    background-image: url("../images/headerBackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height:560px;
 }

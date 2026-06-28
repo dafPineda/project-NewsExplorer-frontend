@@ -4,7 +4,6 @@ export default function Search(){
             <h2 className="search__title">What's going on in the world?</h2>
             <h3 className="search__subtitle">Find the latest news on any topic and save them in your personal account.</h3>
             <form className="search__form">
-                <fieldset className="form__fielset">
                     <input
                     className="form__input"
                     id="searchInput"
@@ -18,7 +17,6 @@ export default function Search(){
                     id="searchSubmit"
                     type="submit"
                     >Search</button>
-                </fieldset>
             </form>
         </section>
     )

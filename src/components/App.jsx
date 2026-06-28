@@ -5,13 +5,16 @@ import Footer from './Footer/Footer'
 
 function App() {
   return (
-    <>
+    <div className="page">
+     <div className="header__image">
+
       <Header/>
-      <Routes>
-        <Route path="/" element={<Main />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Main />} />
+        </Routes>
+     </div>
       <Footer/>
-    </>
+    </div>
   )
 }
 
