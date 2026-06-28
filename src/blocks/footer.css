@@ -1,0 +1,23 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    margin: 30px 50px 20px;
+    align-items: center;
+}
+.footer__copyright{
+    color:#B6BCBF;
+    font-size: 15px;
+    margin-right: auto;
+}
+.footer__text{
+    cursor: pointer;
+    font-weight: lighter;
+    font-size: 15px;
+    margin: 0 5px;
+}
+.footer__media{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+}
