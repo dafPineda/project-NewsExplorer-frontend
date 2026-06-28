@@ -1,3 +1,34 @@
 .about{
-    
+    margin:0 50px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    padding: 100px 0;
+    column-gap: 50px;
+}
+.about__title{
+    grid-column: 3/-1;
+    grid-row: 1/4;
+    font-size: 40px;
+    font-weight: lighter;
+}
+.about__image{
+    background-image: url("../images/dafne.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    grid-row: 1/-1;
+    grid-column: 1/3;
+}
+.about__text{
+    grid-row:4/7;
+    grid-column: 3/-1;
+    font-size: 20px;
+    font-weight: lighter;
+}
+.about__text-down{
+    grid-row:7/-1;
 }
