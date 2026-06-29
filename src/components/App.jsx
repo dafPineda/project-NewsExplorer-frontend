@@ -53,7 +53,7 @@ function App() {
           signIn={signIn}
           username="Elise"
         />
-        {isHome && <Search/>}
+       {isHome && <Search/>}
       </div>
       <Routes>
         <Route path="/" element={<Main/>}/>

@@ -8,6 +8,7 @@ export default function Navigation({isLogged, onOpenPopup, signIn, username}){
     const isHome = location.pathname === "/"
     return(
         <section className="nav">
+            <div className="nav__menu"/>
             <Link className="nav__text" to="/">Home</Link>
             {isLogged?
                 <>

@@ -13,8 +13,30 @@
 }
 .header__image{
     margin: 0;
-    background-image: url("../images/headerBackground.png");
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/headerBackground.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    min-height:560px;
+    background-size: 105%;
+    height: 672px;
+    background-position-y: 64%;
+}
+@media (max-width:1024px) {
+    .header__image{
+        background-size: 138%;
+        height: 569px;
+        background-position-y: 56%;
+        background-position-x: 37%;
+    }
+
+}
+@media (max-width:544px) {
+    .header{
+            margin: 5px 17px
+    }
+   .header__block{
+        width: 100%;
+            font-size: 21px;
+   }
+   .header__image{
+    background-position: 70% center;
+   }
 }

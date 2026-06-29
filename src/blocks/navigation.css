@@ -4,6 +4,11 @@
     margin-left: auto;
     gap: 10px;
 }
+.nav__menu{
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
 .nav__text{
     cursor: pointer;
     margin: auto;
@@ -50,4 +55,25 @@
 .nav__button-image{
     margin:5px 5px 0;
     width: 15px;
+}
+
+@media (max-width:544px) {
+    .nav__menu{
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        background-image: url('../images/menu.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 50px;
+        height: 44px;
+    }
+    .nav__text{
+        opacity: 0;
+        display: none;
+    }
+    .nav__button-logout{
+        opacity: 0;
+        display: none;
+    }
 }

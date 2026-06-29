@@ -16,6 +16,8 @@
 }
 .card__flag{
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     width: 40px;
     height: 40px;
@@ -78,3 +80,47 @@
     font-size: 18px;
 }
  
+@media (max-width:1024px) {
+    .cards{
+        padding:0;
+        gap:10px
+    }
+    .card{
+        width: 205px;
+        height: 360px;
+        border-radius: 16px;
+    }
+    .card__image{
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+    }
+    .card__info{
+        margin: 5px 13px;
+    }
+    .card__info-date{
+        font-size: 12px;
+    }
+    .card__info-title{
+        font-size: 19px;
+    }
+    .card__info-text{
+        margin: 0;
+        height:70px;
+        margin-top: 7px;
+        font-size: 15px;       
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+    }
+    .card__info-category{
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    .card__flag{
+        left: 152px;
+        width: 35px;
+        height: 35px;
+    }
+    
+}

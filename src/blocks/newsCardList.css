@@ -64,6 +64,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position:relative;
 }
 .preloader-circle {
     overflow: hidden;
@@ -79,11 +80,23 @@
 }
 .preloader-text{
     position: absolute;
-    top: 804px;
+    top: 170px;
     color: #B6BCBF;
 }
 @keyframes spin {
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+@media (max-width:1024px) {
+    .new-card-list{
+        padding: 0 55px;
+    }
+    .nothing-found{
+        height: 266px;
+    }
+    .result-button{
+        margin: 20px 0 50px;
+    }
 }

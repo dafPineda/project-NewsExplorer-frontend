@@ -51,3 +51,25 @@
 .form__button:hover{
     background-color: #467ddc;
 }
+
+@media (max-width:1024px) {
+    .search__title{
+        margin:0;
+        font-size: 59px;
+        width: 534px;
+    }
+    .search__subtitle{
+        width: 515px;
+        font-size: 20px;
+    }
+    .search__form{
+        width: 542px;
+        margin-bottom: 45px;
+    }
+}
+@media (max-width:1024px) {
+
+}
+@media (max-width:544px) {
+    /*         */
+}
