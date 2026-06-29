@@ -3,7 +3,10 @@
     color:#fff;
 }
 .header__block{
-    display: flex;
+    display: flex;   
+}
+.header__block_black{
+    color: black;
 }
 .header__title{
     font-size: 30px;

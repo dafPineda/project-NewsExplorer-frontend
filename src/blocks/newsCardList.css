@@ -27,60 +27,6 @@
 .result-button:hover{
     opacity: 70%;
 }
-.cards{
-    display: flex;
-    gap:20px;
-    list-style: none;
-}
-.card{
-    width: 400px;
-    height: 576px;
-    background-color: white;
-    border-radius: 30px;
-    cursor: pointer;
-    position: relative;
-}
-.card:hover{
-    box-shadow: 1px 16px 47px #00000040;
-}
-.card__flag{
-    background-image: url("../images/flagNormal.png");
-    position: absolute;
-    margin: 0;
-    width: 40px;
-    height: 40px;
-    left: 340px;
-    top: 19px;
-}
-.card__flag:hover{
-    background-image: url('../images/flagHover.png');
-}
-.card__flag_marked{
-    background-image:url('../images/flagMarked.png');
-}
-.card__image{
-    width:100%;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-}
-.card__info{
-    margin: 10px 24px;
-}
-.card__info-date{
-    color:#B6BCBF;
-}
-.card__info-title{
-    margin:0;
-    font-size: 30px;
-}
-.card__info-text{
-    margin-top: 14px;
-    font-size: 17px;
-}
-.card__info-edit{
-    color:#B6BCBF;
-    font-size: 18px;
-}
 .nothing-found{
     display: flex;
     flex-direction: column;
@@ -95,7 +41,7 @@
     background-position: center;
     width: 90px;
     height:90px;
-}       
+}      
 .nothing-found__title{
     font-weight: bold;
     font-size: 30px;

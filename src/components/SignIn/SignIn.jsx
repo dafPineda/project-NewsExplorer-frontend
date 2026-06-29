@@ -68,7 +68,7 @@ export default function SignIn(){
             name="submitSignIn"
             className={`popup__button ${!isValid ? "popup__button_disabled" : ""}`}
             disabled={!isValid}
-            onSubmit={handleSubmit}>
+            onClick={handleSubmit}>
                 Sign in
             </button>
         </form>

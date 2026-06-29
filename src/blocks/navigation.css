@@ -8,6 +8,8 @@
     cursor: pointer;
     margin: auto;
     gap: 10px;
+    text-decoration: none;
+    color: inherit;
 }
 .nav__text:hover{
     opacity: 70%;
@@ -27,6 +29,7 @@
 }
 .nav__button-logout{
     display: flex;
+    padding: 0 20px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -36,6 +39,10 @@
     border: 1px solid #fff;
     border-radius: 30px;
     color: white;
+}
+.nav__button-logout_black{
+    border: 1px solid #000;
+    color:#000
 }
 .nav__button-logout:hover{
     opacity: 70%;

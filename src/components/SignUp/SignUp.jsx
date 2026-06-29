@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function SignUp(){
+export default function SignUp({onSuccess}){
     const [values, setValues] = useState({email:"", password:"", username:""})
     const [errors, setErrors] = useState({email:"", password:"", username:""})
     const [isValid, setIsValid] = useState(false)
@@ -31,9 +31,10 @@ export default function SignUp(){
     function handleSubmit(evt){
         evt.preventDefault();
         console.log(evt)
+        onSuccess()
     }
     return(
-        <form className="popup__form" id="signUp" name="signUp" noValidate>
+        <form className="popup__form" id="signUp" name="signUp" noValidate >
             <label className="popup__label"
             >Email</label>
             <input
@@ -79,7 +80,7 @@ export default function SignUp(){
             id="submitSignUn" 
             className={`popup__button ${!isValid ? "popup__button_disabled" : ""}`}
             disabled={!isValid}
-            onSubmit={handleSubmit}>
+            onClick={handleSubmit}>
                 Sign up
             </button>
         </form>
