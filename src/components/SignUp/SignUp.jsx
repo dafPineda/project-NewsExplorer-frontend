@@ -1,4 +1,37 @@
+import { useState } from "react"
+
 export default function SignUp(){
+    const [values, setValues] = useState({email:"", password:"", username:""})
+    const [errors, setErrors] = useState({email:"", password:"", username:""})
+    const [isValid, setIsValid] = useState(false)
+
+    function handleChange(evt){
+        const { name, value, validity } = evt.target;
+        setValues({
+            ...values,
+            [name]: value,
+        });
+        let error = "";
+
+        if (validity.valueMissing) {
+            error = "This field is required.";
+        } else if (validity.typeMismatch) {
+            error = "Invalid email address.";
+        } else if (validity.tooShort) {
+            error = "Must contain at least 3 characters.";
+        }
+
+        setErrors({
+            ...errors,
+            [name]: error,
+        });
+        
+        setIsValid(evt.target.closest("form").checkValidity());
+    }
+    function handleSubmit(evt){
+        evt.preventDefault();
+        console.log(evt)
+    }
     return(
         <form className="popup__form" id="signUp" name="signUp" noValidate>
             <label className="popup__label"
@@ -10,31 +43,43 @@ export default function SignUp(){
             id="emailSignUp"
             placeholder="Enter your email"
             minLength={2}
+            value={values.email}
+            onChange={handleChange}
             required
             />
-            <span className="popup__input-error">Email valid is required</span>
+            <span className="popup__input-error">{errors.email}</span>
             <label className="popup__label">Password</label>
             <input 
-            type="text"
+            type="password"
             className="popup__input"
             id="passwordSignUp"
+            name="password"
             minLength={3}
             placeholder="Enter password"
+            value={values.password}
+            onChange={handleChange}
             required
             />
-            <span className="popup__input-error">Insert more of two </span>
+            <span className="popup__input-error">{errors.password} </span>
             <label className="popup__label">Username</label>
             <input 
             type="text"
             className="popup__input"
             id="username"
-            minLength={2}
+            name="username"
+            minLength={3}
             placeholder="Enter your username"
+            value={values.username}
+            onChange={handleChange}
             required
             />
-            <span className="popup__input-error">Insert more </span>
-            <span className="popup__input-error">This username is not available</span>
-            <button type="submit" className="popup__button " id="submitSignUn" name="submitSignUn" >
+            <span className="popup__input-error">{errors.username}</span>
+            <button 
+            type="submit" 
+            id="submitSignUn" 
+            className={`popup__button ${!isValid ? "popup__button_disabled" : ""}`}
+            disabled={!isValid}
+            onSubmit={handleSubmit}>
                 Sign up
             </button>
         </form>

@@ -1,9 +1,6 @@
 import Union from "../../../images/Union.png"
 
-import SignIn from "../../SignIn/SignIn"
-
-export default function Navigation({isLogged, onOpenPopup}){
-      const signIn = {title:"Sign in", children:<SignIn/>}
+export default function Navigation({isLogged, onOpenPopup, signIn}){
     return(
         <section className="nav">
             <p className="nav__text">Home</p>

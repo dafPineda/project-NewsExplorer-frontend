@@ -1,11 +1,5 @@
-import SignUp from "../SignUp/SignUp";
-import SignIn from "../SignIn/SignIn";
-
 export default function Popup(props) {
-  const { onClose, title, children, isOpen, onOpen, popupOpen} = props;
-  
-  const signUp = {title:"Sign up", children:<SignUp/>}
-  const signIn = {title:"Sign in", children:<SignIn/>}
+  const { onClose, title, children, isOpen, onOpen, popupOpen, signIn, signUp} = props;
 
   return (
     <div className={`popup ${isOpen ? "popup__open": ""}`}>

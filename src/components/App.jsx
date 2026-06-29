@@ -7,8 +7,14 @@ import Main from './Main/Main'
 import Footer from './Footer/Footer'
 import Search from "./Search/Search"
 import Popup from "./Popup/Popup"
+import SignIn from "./SignIn/SignIn"
+import SignUp from "./SignUp/SignUp"
+
+
 
 function App() {
+  const signUp = {title:"Sign up", children:<SignUp/>}
+  const signIn = {title:"Sign in", children:<SignIn/>}
   const [isLoggedIn, setIsLoggedIn]= useState(false)
   const [popup, setPopup] = useState(null)
 
@@ -18,6 +24,11 @@ function App() {
   function handleClosePopup() {
       setPopup(null);
   }
+  function handleSuccesRegister(){
+    setPopup({title:"Registration successfully completed!",
+      children:null
+    })
+  }
   return (
     <div className="page">
     {popup && (
@@ -26,12 +37,17 @@ function App() {
         title={popup.title} 
         isOpen={!!popup}
         onOpen={handleOpenPopup}
-        popupOpen={popup}>
+        popupOpen={popup}
+        signIn={signIn}
+        signUp={signUp}>
             {popup.children}
         </Popup>
     )} 
      <div className="header__image">
-      <Header isLogged={isLoggedIn} onOpenPopup={handleOpenPopup}/>
+      <Header 
+      isLogged={isLoggedIn} 
+      onOpenPopup={handleOpenPopup}
+      signIn={signIn}/>
       <Search/>
      </div>
         <Routes>

@@ -61,13 +61,9 @@
     outline: none;
 }
 .popup__input-error{
+    height: 13px;
     color:red;
     font-family: "Inter", Arial, Helvetica, sans-serif;
-    opacity: 0;
-}
-
-.popup_input-error_active{
-    opacity: 1;
 }
 
 .popup__input_type_error {
