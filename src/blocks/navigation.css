@@ -45,7 +45,7 @@
     border-radius: 30px;
     color: white;
 }
-.nav__button-logout_black{
+.nav__button_black{
     border: 1px solid #000;
     color:#000
 }
@@ -68,11 +68,18 @@
         width: 50px;
         height: 44px;
     }
+    .nav__menu_black{
+        background-image: url("../images/menu_black.png");
+    }
     .nav__text{
         opacity: 0;
         display: none;
     }
     .nav__button-logout{
+        opacity: 0;
+        display: none;
+    }
+    .nav__button-signin{
         opacity: 0;
         display: none;
     }

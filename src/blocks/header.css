@@ -20,23 +20,30 @@
     background-position-y: 64%;
 }
 @media (max-width:1024px) {
+    .header{
+        margin:20px 50px;
+    }
     .header__image{
         background-size: 138%;
         height: 569px;
         background-position-y: 56%;
         background-position-x: 37%;
     }
-
 }
 @media (max-width:544px) {
     .header{
-            margin: 5px 17px
+        margin: 5px 17px
     }
    .header__block{
         width: 100%;
-            font-size: 21px;
+        font-size: 21px;
+   }
+   .header__title{
+        margin: 5px
    }
    .header__image{
-    background-position: 70% center;
+        background-size: 247%;
+        background-position-y: 56%;
+        background-position-x: 52%;
    }
 }

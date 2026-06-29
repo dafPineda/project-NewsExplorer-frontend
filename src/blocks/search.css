@@ -67,9 +67,31 @@
         margin-bottom: 45px;
     }
 }
-@media (max-width:1024px) {
-
-}
 @media (max-width:544px) {
-    /*         */
+    .search__title{
+        font-size: 43px;
+        width: 281px;
+        margin-top: 19px;
+    }
+    .search__subtitle {
+        width: 281px;
+        font-size: 20px;
+    }
+    .search__form {
+        border-radius: 0;
+        background: none;
+        flex-direction: column;
+        width: 312px;
+        margin: 50px 0 0;
+    }
+    .form__input{
+        padding: 17px 5px;
+        border-radius: 26px;
+        width: 283px;
+
+    }
+    .form__button{
+        margin-top: 15px;
+        width: 283px;
+    }
 }

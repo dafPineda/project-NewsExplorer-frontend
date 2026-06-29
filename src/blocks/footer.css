@@ -21,3 +21,28 @@
     height: 15px;
     margin: 0 5px;
 }
+@media (max-width:544px) {
+    .footer{
+        margin:0 25px;
+        display: grid;
+        grid-template-columns: 5fr 1fr 1fr;
+        grid-template-rows: repeat(3,1fr);
+        row-gap: 10px;
+    }
+    .footer__text-home{
+        grid-row: 1;
+        grid-column: 1;
+    }
+    .footer__text-autor{
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .footer__media{
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .footer__copyright{
+        grid-column: 1/-1;
+        grid-row: 3;
+    }
+}

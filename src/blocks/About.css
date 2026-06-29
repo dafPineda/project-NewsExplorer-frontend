@@ -64,3 +64,31 @@
     }
 
 }
+@media (max-width:544px) {
+    .about{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 1fr);
+        padding: 0;
+        margin: 0 25px;
+        row-gap: 10px;
+    }
+    .about__image{
+        grid-column: 1;
+        grid-row: 1/5;
+        width: 270px;
+        height: 270px;
+    }
+    .about__title{
+        margin-top: 10px;
+        grid-column: 1;
+        grid-row: 5;
+    }
+    .about__text{
+        grid-column: 1;
+        grid-row: 6/9;
+    }
+    .about__text-down{
+        grid-column: 1;
+        grid-row: 9/-1;
+    }
+}

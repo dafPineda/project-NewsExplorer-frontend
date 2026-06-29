@@ -17,3 +17,36 @@
 .saved-news__keywords{
     font-weight: bold;
 }
+
+@media (max-width:1024px) {
+    .saved-news{
+        margin: 0 50px;
+    }
+    .saved-news__subtitle{
+        font-size: 15px;
+    }
+    .saved-news__title{
+            margin: 21px 0;
+    font-size: 27px;
+    width: 329px;
+    }
+    .saved-news__text{
+            margin: 22px 0;
+    font-size: 13px;
+    }
+
+}
+@media (max-width:544px){
+    .saved-news {
+        margin: 0 25px;
+    }
+    .saved-news__title {
+        margin: 12px 0;
+        font-size: 33px;
+        width: 260px;
+    }
+    .saved-news__text {
+        margin: 35px 0;
+        font-size: 17px;
+    }
+}

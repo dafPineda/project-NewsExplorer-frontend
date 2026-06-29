@@ -33,12 +33,15 @@
 }
 .card__trash{
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     width: 40px;
     height: 40px;
     left: 340px;
     top: 19px;
     background-image: url('../images/trash.png');
+    z-index: 9;
 }
 .card__trash:hover{
     background-image: url('../images/trashHover.png');
@@ -122,5 +125,56 @@
         width: 35px;
         height: 35px;
     }
+    .card__trash{
+            width: 34px;
+    height: 34px;
+    left: 125px;
+    }
+    .card__keyword{
+        font-size: 15px;
+        padding: 8.5px 9px;
+        left:7px;
+    }   
+}
+@media (max-width:544px) {
+    .cards{
+        flex-direction: column;
+        gap:15px;
+    }
+    .card{
+        width: 270px;
+        height: 416px;
+    }
+    .card__info-title{
+        font-size: 24px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+    .card__info-text{
+        margin-top: 17px;
+        font-size: 16px;
+        height: 76px;
+    }
+    .card__flag{
+        left: 204px;
+        width: 50px;
+        height: 50px;
+    }
+    .card__trash{
+        width: 50px;
+        height: 50px;
+        left: 202px;
+    }
+    .card__keyword{
+        font-size: 20px;
+        padding: 11px 11px;
+        left: 13px;
+    }
+    .card__info-category{
+        font-size: 20px;
+    }
     
+
 }

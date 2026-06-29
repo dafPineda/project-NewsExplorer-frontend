@@ -15,7 +15,7 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute"
 function App() {
   const signUp = {title:"Sign up", children:<SignUp onSuccess={handleSuccesRegister}/>}
   const signIn = {title:"Sign in", children:<SignIn/>}
-  const [isLoggedIn, setIsLoggedIn]= useState(true)
+  const [isLoggedIn, setIsLoggedIn]= useState(false)
   const [popup, setPopup] = useState(null)
 
   const location = useLocation()
