@@ -1,5 +1,9 @@
 import Union from "../../../images/Union.png"
-export default function Navigation({isLogged}){
+
+import SignIn from "../../SignIn/SignIn"
+
+export default function Navigation({isLogged, onOpenPopup}){
+      const signIn = {title:"Sign in", children:<SignIn/>}
     return(
         <section className="nav">
             <p className="nav__text">Home</p>
@@ -9,7 +13,9 @@ export default function Navigation({isLogged}){
                     <button className="nav__button-logout">Username<img className="nav__button-image" src={Union}/></button> 
                 </>
                 :
-                <button className="nav__button-signin">SignIn</button>}
+                <button className="nav__button-signin" 
+                onClick={()=> onOpenPopup(signIn)}
+                >SignIn</button>}
         </section>
     )
 }
