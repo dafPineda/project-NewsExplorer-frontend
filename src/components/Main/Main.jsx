@@ -2,7 +2,7 @@ import About from "./components/About/About"
 import NewsCardList from "./components/NewsCardList/NewsCardList"
 
 export default function Main({isLoggedIn, articles, isLoading, searchError, 
-    isSearched, savedArticles, onSavedArticle, onDeleteArticle}){
+    isSearched, savedArticles, onSavedArticle, onDeleteArticle, onOpenPopup, signIn}){
     return(
         <main className="main">
             <NewsCardList 
@@ -13,7 +13,9 @@ export default function Main({isLoggedIn, articles, isLoading, searchError,
             isSearched={isSearched}
             savedArticles={savedArticles}
             onSave={onSavedArticle}
-            onDelete={onDeleteArticle}/>
+            onDelete={onDeleteArticle}
+            onOpenPopup={onOpenPopup} 
+            signIn={signIn}/>
             <About/>
         </main>
     )

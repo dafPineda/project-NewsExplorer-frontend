@@ -1,13 +1,16 @@
 export default function NewsCard({isLoggedIn, link, date, title, text, edit, keyword, article,
-     savedArticles, onSave, onDelete}){
+     savedArticles, onSave, onDelete, onOpenPopup, signIn}){
     const otherCard = (keyword===undefined)  
     const isSaved = savedArticles?.some((a) => a.url === article?.url)
-
     function handleFlagClick() {
-        if (isSaved) {
-        onDelete(article)
-        } else {
-        onSave(article)
+        if(isLoggedIn){
+            if (isSaved) {
+            onDelete(article)
+            } else {
+            onSave(article)
+            }
+        }else{
+            onOpenPopup(signIn)
         }
     }
 
@@ -16,7 +19,7 @@ export default function NewsCard({isLoggedIn, link, date, title, text, edit, key
                 
                 {otherCard? 
                     <div className={`card__flag ${isSaved ? "card__flag_active" : ""}`}
-                        onClick={isLoggedIn ? handleFlagClick : null}
+                        onClick={handleFlagClick}
                         style={{ cursor: isLoggedIn ? "pointer" : "default" }}
                         title={!isLoggedIn ? "Inicia sesión para guardar artículos" : ""}/>   
                 :

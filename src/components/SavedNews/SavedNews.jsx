@@ -21,11 +21,11 @@ export default function SavedNews({username="Elise", savedArticles, onDelete}){
             <p className="saved-news__text">By keywords: <span className="saved-news__keywords">{formatKeywordsText(uniqueKeywords)}</span></p>
 
             <ul className="cards">
-                {savedArticles.map((article,i)=>(
+                {savedArticles.map((article)=>(
                     <NewsCard 
-                    key={i}
+                    key={article.url}
                     link={article.urlToImage}
-                    date={article.publishedAt}
+                    date={formatDate(article.publishedAt)}
                     title={article.title}
                     text={article.description}
                     edit={article.source.name}

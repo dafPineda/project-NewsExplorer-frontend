@@ -91,7 +91,6 @@ function App() {
     setIsOpenMenu(false)
   }
   function handleOpenMenu(){
-    console.log("Entro")
     setIsOpenMenu(true)
   }
   const isHome = location.pathname === "/"
@@ -137,6 +136,8 @@ function App() {
         <Route path="/" element={
           <Main 
           isLoggedIn={isLoggedIn}
+          onOpenPopup={handleOpenPopup}
+          signIn={signIn}
           articles={articles} 
           isLoading={isLoading} 
           searchError={searchError} 

@@ -3,7 +3,7 @@ https://dafpineda.github.io/project-NewsExplorer-frontend/
 
 Aplicación web que permite buscar noticias de cualquier tema usando News API y guardar los artículos favoritos en una cuenta personal.
 
-Proyecto desarrollado como parte del bootcamp de desarrollo web de TripleTen.
+Proyecto desarrollado como parte del bootcamp de desarrollo web de TripleTen optando por la opción de solo Front-end.
 
 ## Funcionalidades
 

@@ -93,7 +93,7 @@
     }
     .card{
         width: 205px;
-        height: 360px;
+        height: auto;
         border-radius: 16px;
     }
     .card__image{

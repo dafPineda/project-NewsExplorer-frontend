@@ -7,7 +7,7 @@ import { formatDate } from "../../../../utils/date";
 
 
 export default function NewsCardList({isLoggedIn, articles, isLoading, searchError, isSearched, 
-    savedArticles, onSave, onDelete}){
+    savedArticles, onSave, onDelete, onOpenPopup, signIn}){
     const [visibleCount, setVisibleCount] = useState(3)  
     function handleShowMore() {
         setVisibleCount((prev) => prev + 3)
@@ -15,16 +15,18 @@ export default function NewsCardList({isLoggedIn, articles, isLoading, searchErr
     return(
         <section className="new-card-list">
             {isLoading&& <Preloader/>}
-            {searchError && <p>Lo sentimos, algo ha salido mal...</p>}
+            {searchError && <p className="new-card-list__error">Lo sentimos, algo ha salido mal...</p>}
             {!isLoading && !searchError && articles.length === 0 && isSearched && <NothingFound/>}
             {!isLoading && !searchError && isSearched && articles.length > 0 && (
-            <div className="new-card-list__result">
+                <div className="new-card-list__result">
                 <h1 className="result__title">Search result</h1>
                 <ul className="cards">
-                    {articles.slice(0, visibleCount).map((article, i)=>(
+                    {articles.slice(0, visibleCount).map((article)=>(
                         <NewsCard 
+                            key={article.url}
                             isLoggedIn={isLoggedIn}
-                            key={i}
+                            onOpenPopup={onOpenPopup} 
+                            signIn={signIn}
                             link={article.urlToImage}
                             date={formatDate(article.publishedAt)}
                             title={article.title}
