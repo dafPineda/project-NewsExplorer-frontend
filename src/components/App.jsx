@@ -16,6 +16,24 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute"
 import { getNews } from "../utils/newsExplorer"
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn]= useState(localStorage.getItem('userInfo')? true:false)
+  const [popup, setPopup] = useState(null)
+  const [isOpenMenu, setIsOpenMenu] = useState(false)
+
+  const [articles, setArticles] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [searchError, setSearchError] = useState(false)
+  const [hasSearched, setHasSearched] = useState(false)
+  const [keyword, setKeyWord] = useState("")
+
+  const [savedArticles, setSavedArticles] = useState(
+    JSON.parse(localStorage.getItem('savedArticles')) || []
+  )
+
+  const [userInfo, setUserInfo]= useState(JSON.parse(localStorage.getItem('userInfo')) || [])
+  
+  const location = useLocation()
+  
   function handleOpenPopup(popup){
       setPopup(popup)
   }
@@ -76,22 +94,6 @@ function App() {
     console.log("Entro")
     setIsOpenMenu(true)
   }
-  const [isLoggedIn, setIsLoggedIn]= useState(localStorage.getItem('userInfo')? true:false)
-  const [popup, setPopup] = useState(null)
-  const [isOpenMenu, setIsOpenMenu] = useState(false)
-
-  const [articles, setArticles] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [searchError, setSearchError] = useState(false)
-  const [hasSearched, setHasSearched] = useState(false)
-  const [keyword, setKeyWord] = useState("")
-
-  const [savedArticles, setSavedArticles] = useState(
-    JSON.parse(localStorage.getItem('savedArticles')) || []
-  )
-
-  const [userInfo, setUserInfo]= useState(JSON.parse(localStorage.getItem('userInfo')) || [])
-  const location = useLocation()
   const isHome = location.pathname === "/"
 
   const signUp = {title:"Sign up", children:<SignUp  onRegister={handleSignUp} onSuccess={handleSuccesRegister}/>}
