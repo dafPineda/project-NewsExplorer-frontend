@@ -1,3 +1,60 @@
+# News Explorer
+
+Aplicación web que permite buscar noticias de cualquier tema usando News API y guardar los artículos favoritos en una cuenta personal.
+
+Proyecto desarrollado como parte del bootcamp de desarrollo web de TripleTen.
+
+## Funcionalidades
+
+
+* Búsqueda de noticias por palabra clave usando News API
+* Visualización de resultados en tarjetas con imagen, fecha, título, descripción y fuente
+* Sistema de registro e inicio de sesión (almacenado en localStorage)
+* Guardado y eliminación de artículos favoritos
+* Página de artículos guardados con resumen de palabras clave buscadas
+* Botón "Mostrar más" para cargar resultados de tres en tres
+* Estados de carga (preloader), error de búsqueda y "no se encontró nada"
+* Menú lateral responsive para dispositivos móviles
+* Diseño adaptable (desktop, tablet y móvil)
+
+
+## Tecnologías
+
+
+* React
+* React Router DOM
+* Vite
+* CSS puro (sin frameworks)
+* News API (peticiones GET)
+* localStorage para persistencia de sesión, artículos guardados y resultados de búsqueda
+
+
+## Estructura del proyecto
+
+src/
+├── components/
+│   ├── App.jsx
+│   ├── Header/
+│   ├── Footer/
+│   ├── Main/
+│   │   └── components/
+│   │       ├── About/
+│   │       └── NewsCardList/
+│   │           ├── NothingFound/
+│   │           └── Preloader/
+│   ├── NewsCard/
+│   ├── SavedNews/
+│   ├── Search/
+│   ├── SignIn/
+│   ├── SignUp/
+│   ├── Popup/
+│   ├── Menu/
+│   └── ProtectedRoute/
+├── utils/
+│   └── newsExplorer.js
+├── fonts/
+└── images/
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
