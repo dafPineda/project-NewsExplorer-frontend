@@ -12,14 +12,28 @@ import SavedNews from "./SavedNews/SavedNews"
 
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute"
 
+import { getNews } from "../utils/newsExplorer"
+
 function App() {
-  const signUp = {title:"Sign up", children:<SignUp onSuccess={handleSuccesRegister}/>}
-  const signIn = {title:"Sign in", children:<SignIn/>}
-  const [isLoggedIn, setIsLoggedIn]= useState(false)
+  const [isLoggedIn, setIsLoggedIn]= useState(localStorage.getItem('userInfo')? true:false)
   const [popup, setPopup] = useState(null)
 
+  const [articles, setArticles] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [searchError, setSearchError] = useState(false)
+  const [hasSearched, setHasSearched] = useState(false)
+  const [keyword, setKeyWord] = useState("")
+
+  const [savedArticles, setSavedArticles] = useState(
+    JSON.parse(localStorage.getItem('savedArticles')) || []
+  )
+
+  const [userInfo, setUserInfo]= useState(JSON.parse(localStorage.getItem('userInfo')) || [])
   const location = useLocation()
   const isHome = location.pathname === "/"
+
+  const signUp = {title:"Sign up", children:<SignUp  onRegister={handleSignUp} onSuccess={handleSuccesRegister}/>}
+  const signIn = {title:"Sign in", children:<SignIn onSignIn={handleLogin} userInfo={userInfo}/>}
 
   function handleOpenPopup(popup){
       setPopup(popup)
@@ -32,6 +46,49 @@ function App() {
       children:null
     })
   }
+
+ function handleSearch(keyword) {
+    setHasSearched(true)
+    setIsLoading(true)
+    setSearchError(false)
+    setKeyWord(keyword)
+    getNews(keyword)
+      .then((data) => {
+        setArticles(data)
+        localStorage.setItem('articles', JSON.stringify(data))
+        localStorage.setItem('keyword', keyword)
+      })
+      .catch(() => setSearchError(true))
+      .finally(() => setIsLoading(false))
+  }
+  function handleSaveArticle(article) {
+    const articleWithKeyword = { ...article, keyword }
+    const updated = [...savedArticles, articleWithKeyword]
+    setSavedArticles(updated)
+    localStorage.setItem('savedArticles', JSON.stringify(updated))
+  }
+  function handleDeleteArticle(article) {
+    const updated = savedArticles.filter((a) => a.url !== article.url)
+    setSavedArticles(updated)
+    localStorage.setItem('savedArticles', JSON.stringify(updated))
+  }
+
+  function handleSignUp(userInfo){
+    localStorage.setItem('userInfo', JSON.stringify(userInfo))
+    setUserInfo(userInfo)
+  }
+  function handleLogout(){
+    localStorage.removeItem('userInfo')
+    setIsLoggedIn(false)
+  }
+  function handleLogin({email, password}){
+    if(userInfo.email !== email || userInfo.password !== password) return {message:"Email or password invalid"}
+    else{
+      setIsLoggedIn(true)
+      handleClosePopup()
+    }
+  }
+
   return (
     <div className="page">
     {popup && (
@@ -51,18 +108,35 @@ function App() {
           isLogged={isLoggedIn} 
           onOpenPopup={handleOpenPopup}
           signIn={signIn}
-          username="Elise"
+          username={userInfo.username}
+          onLogout={handleLogout}
         />
-       {isHome && <Search/>}
+       {isHome && <Search onSearch={handleSearch}/>}
       </div>
       <Routes>
-        <Route path="/" element={<Main/>}/>
-        <Route path="/savednews" element={<SavedNews/>}/>
-        <Route path="*" element={
-          isLoggedIn 
-            ? <Navigate to="/" replace/> 
-            : <Navigate to="/savednews" replace/>
-        }/>
+        <Route path="/" element={
+          <Main 
+          isLoggedIn={isLoggedIn}
+          articles={articles} 
+          isLoading={isLoading} 
+          searchError={searchError} 
+          isSearched={hasSearched}
+          savedArticles={savedArticles}
+          onSavedArticle={handleSaveArticle}
+          onDeleteArticle={handleDeleteArticle}
+          />
+          }/>
+          <Route path="/saved-news" element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <SavedNews username={userInfo.username} savedArticles={savedArticles} onDelete={handleDeleteArticle}/>
+            </ProtectedRoute>
+              }
+              />
+          <Route path="*" element={
+            isLoggedIn 
+              ? <Navigate to="/" replace/> 
+              : <Navigate to="/saved-news" replace/>
+          }/>
       </Routes>
       <Footer/>
     </div>

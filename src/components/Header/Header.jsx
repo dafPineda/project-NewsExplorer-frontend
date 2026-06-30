@@ -1,7 +1,7 @@
 import Navigation from "./Navigation/Navigation"
 import { useLocation } from "react-router-dom"
 
-export default function Header({isLogged, onOpenPopup, signIn, username}){
+export default function Header({isLogged, onOpenPopup, signIn, username, onLogout}){
     const location = useLocation()
     const isHome = location.pathname === "/"
     return(
@@ -12,7 +12,9 @@ export default function Header({isLogged, onOpenPopup, signIn, username}){
                 isLogged={isLogged} 
                 onOpenPopup={onOpenPopup}
                  signIn={signIn}
-                 username={username}/>
+                 username={username}
+                 onLogout={onLogout}
+                 />
             </div>
             <hr/>
         </header>

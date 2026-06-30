@@ -2,6 +2,7 @@
     display: flex;
     gap:20px;
     list-style: none;
+    flex-wrap: wrap;
 }
 .card{
     width: 400px;
@@ -28,7 +29,7 @@
 .card__flag:hover{
     background-image: url('../images/flagHover.png');
 }
-.card__flag_marked{
+.card__flag_active{
     background-image:url('../images/flagMarked.png');
 }
 .card__trash{

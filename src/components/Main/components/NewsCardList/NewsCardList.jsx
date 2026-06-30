@@ -1,42 +1,49 @@
+import { useState } from "react";
+
 import NothingFound from "./NothingFound/NothingFound";
 import Preloader from "./Preloader/Preloader";
 import NewsCard from "../../../NewsCard/NewsCard";
+import { formatDate } from "../../../../utils/date";
 
-export default function NewsCardList(){
+
+export default function NewsCardList({isLoggedIn, articles, isLoading, searchError, isSearched, 
+    savedArticles, onSave, onDelete}){
+    const [visibleCount, setVisibleCount] = useState(3)  
+    function handleShowMore() {
+        setVisibleCount((prev) => prev + 3)
+    }
     return(
         <section className="new-card-list">
-            <NothingFound/>
-            <Preloader/>
+            {isLoading&& <Preloader/>}
+            {searchError && <p>Lo sentimos, algo ha salido mal...</p>}
+            {!isLoading && !searchError && articles.length === 0 && isSearched && <NothingFound/>}
+            {!isLoading && !searchError && isSearched && articles.length > 0 && (
             <div className="new-card-list__result">
                 <h1 className="result__title">Search result</h1>
                 <ul className="cards">
-                    <NewsCard 
-                    link="https://rarehistoricalphotos.com/wp-content/uploads/2023/12/historical-colorized-photos.jpg"
-
-                    date="November 4, 2020" 
-                    title="Everyone Needs a Special 'Sit Spot' in Nature"
-                    text= "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through leaves.из местных чудес природы."
-                    edit="national geographic"
-                    />
-                    <NewsCard 
-                    link="https://rarehistoricalphotos.com/wp-content/uploads/2023/12/historical-colorized-photos.jpg"
-                    
-                    date="November 4, 2020" 
-                    title="Everyone Needs a Special 'Sit Spot' in Nature"
-                    text= "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through leaves.из местных чудес природы."
-                    edit="national geographic"
-                    />
-                    <NewsCard 
-                    link="https://rarehistoricalphotos.com/wp-content/uploads/2023/12/historical-colorized-photos.jpg"
-                    
-                    date="November 4, 2020" 
-                    title="Everyone Needs a Special 'Sit Spot' in Nature"
-                    text= "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through leaves.из местных чудес природы."
-                    edit="national geographic"
-                    />
+                    {articles.slice(0, visibleCount).map((article, i)=>(
+                        <NewsCard 
+                            isLoggedIn={isLoggedIn}
+                            key={i}
+                            link={article.urlToImage}
+                            date={formatDate(article.publishedAt)}
+                            title={article.title}
+                            text={article.description}
+                            edit={article.source.name}
+                            savedArticles={savedArticles}
+                            onSave={onSave}
+                            onDelete={onDelete}
+                            article={article}
+                        />
+                    ))
+                    }
                 </ul>
-                <button className="result-button">Show more</button>
-            </div>
+                {visibleCount < articles.length && (
+                    <button className="result-button" onClick={handleShowMore}>
+                    Show more
+                    </button>
+                )}            
+            </div>)}
         </section>
     )
 }

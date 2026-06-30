@@ -1,6 +1,6 @@
 import { use, useState } from "react"
 
-export default function SignIn(){
+export default function SignIn({onSignIn}){
     const [values, setValues] = useState({email:"", password:""})
     const [errors, setErrors] = useState({email:"", password:""})
     const [isValid, setIsValid] = useState(false)
@@ -31,7 +31,14 @@ export default function SignIn(){
     }
     function handleSubmit(evt){
         evt.preventDefault();
-        console.log(evt)
+        const err = onSignIn(values)
+
+        if(err.message) {
+            setErrors({
+                ...errors,
+                password: err.message,
+            });
+        }
     }
     return (
         <form className="popup__form" id="signIn" name="signIn" noValidate>

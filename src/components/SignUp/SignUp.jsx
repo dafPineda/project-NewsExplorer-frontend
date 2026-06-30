@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function SignUp({onSuccess}){
+export default function SignUp({onSuccess, onRegister}){
     const [values, setValues] = useState({email:"", password:"", username:""})
     const [errors, setErrors] = useState({email:"", password:"", username:""})
     const [isValid, setIsValid] = useState(false)
@@ -30,7 +30,7 @@ export default function SignUp({onSuccess}){
     }
     function handleSubmit(evt){
         evt.preventDefault();
-        console.log(evt)
+        onRegister(values)
         onSuccess()
     }
     return(
