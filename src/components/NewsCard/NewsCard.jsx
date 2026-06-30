@@ -25,7 +25,7 @@ export default function NewsCard({isLoggedIn, link, date, title, text, edit, key
                     <div className="card__trash" onClick={() => onDelete(article)}/>
                 </>
                 }
-               <img className="card__image" src={link}/>
+               <img className="card__image" src={link} alt={title}/>
                 <div className="card__info">
                     <p className="card__info-date">{date}</p>
                     <h2 className="card__info-title">{title}</h2>
