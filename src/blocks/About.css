@@ -1,5 +1,5 @@
 .about{
-    margin:0 50px;
+    margin:10px 50px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(10, 1fr);
@@ -69,7 +69,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: repeat(12, 1fr);
         padding: 0;
-        margin: 0 25px;
+        margin: 25px 25px;
         row-gap: 10px;
     }
     .about__image{

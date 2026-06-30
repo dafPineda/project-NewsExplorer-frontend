@@ -7,7 +7,7 @@
 }
 .card{
     width: 400px;
-    height: 576px;
+    height: auto;
     background-color: white;
     border-radius: 30px;
     cursor: pointer;
@@ -74,13 +74,14 @@
 }
 .card__info-title{
     margin:0;
-    font-size: 30px;
+    font-size: 20px;
 }
 .card__info-text{
     margin-top: 14px;
     font-size: 17px;
 }
 .card__info-category{
+    margin-top: auto;
     color:#B6BCBF;
     font-size: 18px;
 }
@@ -160,18 +161,20 @@
         height: 76px;
     }
     .card__flag{
-        left: 204px;
-        width: 50px;
-        height: 50px;
+        top: 8px;
+        left: 220px;
+        width: 40px;
+        height: 40px;
     }
     .card__trash{
-        width: 50px;
-        height: 50px;
-        left: 202px;
+        top: 8px;
+        left: 220px;
+        width: 40px;
+        height: 40px;
     }
     .card__keyword{
         font-size: 20px;
-        padding: 11px 11px;
+        padding: 9px 11px;
         left: 13px;
     }
     .card__info-category{
