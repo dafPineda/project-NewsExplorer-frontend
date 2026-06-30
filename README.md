@@ -1,4 +1,5 @@
 # News Explorer
+https://dafpineda.github.io/project-NewsExplorer-frontend/
 
 Aplicación web que permite buscar noticias de cualquier tema usando News API y guardar los artículos favoritos en una cuenta personal.
 
