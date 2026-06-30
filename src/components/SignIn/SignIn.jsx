@@ -33,7 +33,7 @@ export default function SignIn({onSignIn}){
         evt.preventDefault();
         const err = onSignIn(values)
 
-        if(err.message) {
+        if(err) {
             setErrors({
                 ...errors,
                 password: err.message,

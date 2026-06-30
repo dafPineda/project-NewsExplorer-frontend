@@ -7,9 +7,9 @@ export default function Footer(){
         <footer className="footer">
             <p className="footer__copyright">© 2026 Supersite, Powered by News API</p>
             <p className="footer__text footer__text-home"><Link to="/" >Home</Link></p>
-            <p className="footer__text footer__text-autor" href="#about">Practicum by Dafne Pineda</p>
-            <a href="https://github.com/dafPineda"><img className="footer__media footer__media-github" src={github} alt="github"/></a>
-            <a href="https://www.facebook.com/dafne.a.pineda"><img className="footer__media footer__media-facebook" src={facebook} alt="facebook"/></a>
+            <p className="footer__text footer__text-autor" >Practicum by Dafne Pineda</p>
+            <a href="https://github.com/dafPineda" target="_blank" rel="noopener noreferrer"><img className="footer__media footer__media-github" src={github} alt="github"/></a>
+            <a href="https://www.facebook.com/dafne.a.pineda" target="_blank" rel="noopener noreferrer"><img className="footer__media footer__media-facebook" src={facebook} alt="facebook"/></a>
         </footer>
     )
 }
