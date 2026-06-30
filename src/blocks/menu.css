@@ -1,0 +1,75 @@
+.menu{
+    visibility: hidden;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.467);
+    justify-content: center;
+    align-items: start;
+    z-index: 999;
+}
+.menu_open{
+    display: flex;
+    visibility: visible;
+}
+.menu__close{
+    background: none;
+    background-image: url("../images/closeIcon.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 14px;
+    left: 259px;
+    border: none;
+    cursor: pointer;
+    z-index: 99999;
+    width: 25px;
+    height: 25px;
+}
+.menu__close:hover {
+    opacity: 0.6;
+}
+.menu-block{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width:100%;
+    height: auto;
+    padding: 10px 30px 50px;
+    background-color: #1A1B22;
+    border-radius: 10px;
+    color:white
+}
+.menu__title{
+    font-size: 30px;
+}
+.menu__line{
+    width: 100%;
+}
+.menu__text{
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    color: inherit;
+    margin: 20px 0;
+}
+.menu__button-logout{
+    margin-top: 40px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #fff;
+    color: white;
+    padding: 12px;
+    border-radius: 20px;
+}
+.menu__button-signin{
+    margin-top: 40px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #fff;
+    color: white;
+    padding: 12px;
+    border-radius: 20px;
+}

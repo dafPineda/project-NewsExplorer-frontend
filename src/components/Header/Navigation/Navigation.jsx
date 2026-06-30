@@ -3,18 +3,12 @@ import { useLocation } from "react-router-dom"
 
 import Union from "../../../images/Union.png"
 
-export default function Navigation({isLogged, onOpenPopup, signIn, username, onLogout}){
+export default function Navigation({isLogged, onOpenPopup, signIn, username, onLogout, onOpenMenu}){
     const location = useLocation()
     const isHome = location.pathname === "/"
-    
-    function handleOpenMenu(){
-
-    }
     return(
         <section className="nav">
-            <div></div>
-            <div className={`nav__menu ${!isHome&& "nav__menu_black"}`}/>
-            <div className="nav__menu-block"/>
+            <div className={`nav__menu ${!isHome&& "nav__menu_black"}`} onClick={()=>onOpenMenu()}/>
             <Link className="nav__text" to="/">Home</Link>
             {isLogged?
                 <>

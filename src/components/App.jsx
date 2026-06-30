@@ -9,6 +9,7 @@ import Popup from "./Popup/Popup"
 import SignIn from "./SignIn/SignIn"
 import SignUp from "./SignUp/SignUp"
 import SavedNews from "./SavedNews/SavedNews"
+import Menu from "./Menu/Menu"
 
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute"
 
@@ -17,6 +18,7 @@ import { getNews } from "../utils/newsExplorer"
 function App() {
   const [isLoggedIn, setIsLoggedIn]= useState(localStorage.getItem('userInfo')? true:false)
   const [popup, setPopup] = useState(null)
+  const [isOpenMenu, setIsOpenMenu] = useState(false)
 
   const [articles, setArticles] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -88,9 +90,24 @@ function App() {
       handleClosePopup()
     }
   }
-
+  function handleCloseMenu(){
+    setIsOpenMenu(false)
+  }
+  function handleOpenMenu(){
+    console.log("Entro")
+    setIsOpenMenu(true)
+  }
   return (
     <div className="page">
+    <Menu
+        isOpen={isOpenMenu}
+        isLogged={isLoggedIn} 
+          onOpenPopup={handleOpenPopup}
+          signIn={signIn}
+          username={userInfo.username}
+          onLogout={handleLogout}
+          onClose={handleCloseMenu}
+    />
     {popup && (
         <Popup 
         onClose={handleClosePopup} 
@@ -110,6 +127,7 @@ function App() {
           signIn={signIn}
           username={userInfo.username}
           onLogout={handleLogout}
+          onOpenMenu={handleOpenMenu}
         />
        {isHome && <Search onSearch={handleSearch}/>}
       </div>

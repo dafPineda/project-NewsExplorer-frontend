@@ -71,9 +71,6 @@
     .nav__menu_black{
         background-image: url("../images/menu_black.png");
     }
-    .nav__menu-block{
-        
-    }
     .nav__text{
         opacity: 0;
         display: none;
