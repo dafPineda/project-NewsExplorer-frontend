@@ -6,7 +6,7 @@ import NewsCard from "../../../NewsCard/NewsCard";
 import { formatDate } from "../../../../utils/date";
 
 
-export default function NewsCardList({isLoggedIn, articles, isLoading, searchError, isSearched, 
+export default function NewsCardList({articles, isLoading, searchError, isSearched, 
     savedArticles, onSave, onDelete, onOpenPopup, signIn}){
     const [visibleCount, setVisibleCount] = useState(3)  
     function handleShowMore() {
@@ -24,7 +24,6 @@ export default function NewsCardList({isLoggedIn, articles, isLoading, searchErr
                     {articles.slice(0, visibleCount).map((article)=>(
                         <NewsCard 
                             key={article.url}
-                            isLoggedIn={isLoggedIn}
                             onOpenPopup={onOpenPopup} 
                             signIn={signIn}
                             link={article.urlToImage}

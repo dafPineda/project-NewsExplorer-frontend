@@ -1,12 +1,11 @@
 import About from "./components/About/About"
 import NewsCardList from "./components/NewsCardList/NewsCardList"
 
-export default function Main({isLoggedIn, articles, isLoading, searchError, 
+export default function Main({articles, isLoading, searchError, 
     isSearched, savedArticles, onSavedArticle, onDeleteArticle, onOpenPopup, signIn}){
     return(
         <main className="main">
             <NewsCardList 
-            isLoggedIn={isLoggedIn}
             articles={articles} 
             isLoading={isLoading} 
             searchError={searchError} 

@@ -1,6 +1,11 @@
-export default function NewsCard({isLoggedIn, link, date, title, text, edit, keyword, article,
-     savedArticles, onSave, onDelete, onOpenPopup, signIn}){
-    const otherCard = (keyword===undefined)  
+import { useContext } from "react"
+import CurrentUserContext from "../../contexts/CurrentUserContext"
+
+export default function NewsCard({link, date, title, text, edit, keyword, article,
+    savedArticles, onSave, onDelete, onOpenPopup, signIn}){
+    const {isLoggedIn} = useContext(CurrentUserContext)
+
+    const otherCard = keyword===undefined
     const isSaved = savedArticles?.some((a) => a.url === article?.url)
     function handleFlagClick() {
         if(isLoggedIn){

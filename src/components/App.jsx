@@ -12,6 +12,7 @@ import SavedNews from "./SavedNews/SavedNews"
 import Menu from "./Menu/Menu"
 
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute"
+import CurrentUserContext from "../contexts/CurrentUserContext"
 
 import { getNews } from "../utils/newsExplorer"
 
@@ -99,17 +100,16 @@ function App() {
   const signIn = {title:"Sign in", children:<SignIn onSignIn={handleLogin} userInfo={userInfo}/>}
 
   return (
-    <div className="page">
-    <Menu
-        isOpen={isOpenMenu}
-        isLogged={isLoggedIn} 
+    <CurrentUserContext value={{userName:userInfo.username, isLoggedIn}}>
+      <div className="page">
+      <Menu
+          isOpen={isOpenMenu} 
           onOpenPopup={handleOpenPopup}
           signIn={signIn}
-          username={userInfo.username}
           onLogout={handleLogout}
           onClose={handleCloseMenu}
-    />
-    {popup && (
+          />
+      {popup && (
         <Popup 
         onClose={handleClosePopup} 
         title={popup.title} 
@@ -118,49 +118,47 @@ function App() {
         popupOpen={popup}
         signIn={signIn}
         signUp={signUp}>
-            {popup.children}
-        </Popup>
-    )} 
-      <div className={isHome ? "header__image" : ""}>
-        <Header 
-          isLogged={isLoggedIn} 
-          onOpenPopup={handleOpenPopup}
-          signIn={signIn}
-          username={userInfo.username}
-          onLogout={handleLogout}
-          onOpenMenu={handleOpenMenu}
-        />
-       {isHome && <Search onSearch={handleSearch}/>}
-      </div>
-      <Routes>
-        <Route path="/" element={
-          <Main 
-          isLoggedIn={isLoggedIn}
-          onOpenPopup={handleOpenPopup}
-          signIn={signIn}
-          articles={articles} 
-          isLoading={isLoading} 
-          searchError={searchError} 
-          isSearched={hasSearched}
-          savedArticles={savedArticles}
-          onSavedArticle={handleSaveArticle}
-          onDeleteArticle={handleDeleteArticle}
-          />
+              {popup.children}
+          </Popup>
+      )} 
+        <div className={isHome ? "header__image" : ""}>
+          <Header 
+            onOpenPopup={handleOpenPopup}
+            signIn={signIn}
+            onLogout={handleLogout}
+            onOpenMenu={handleOpenMenu}
+            />
+        {isHome && <Search onSearch={handleSearch}/>}
+        </div>
+        <Routes>
+          <Route path="/" element={
+            <Main
+            onOpenPopup={handleOpenPopup}
+            signIn={signIn}
+            articles={articles} 
+            isLoading={isLoading} 
+            searchError={searchError} 
+            isSearched={hasSearched}
+            savedArticles={savedArticles}
+            onSavedArticle={handleSaveArticle}
+            onDeleteArticle={handleDeleteArticle}
+            />
           }/>
-          <Route path="/saved-news" element={
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <SavedNews username={userInfo.username} savedArticles={savedArticles} onDelete={handleDeleteArticle}/>
-            </ProtectedRoute>
-              }
-              />
-          <Route path="*" element={
-            isLoggedIn 
+            <Route path="/saved-news" element={
+              <ProtectedRoute>
+                <SavedNews savedArticles={savedArticles} onDelete={handleDeleteArticle}/>
+              </ProtectedRoute>
+                }
+                />
+            <Route path="*" element={
+              isLoggedIn 
               ? <Navigate to="/" replace/> 
               : <Navigate to="/saved-news" replace/>
-          }/>
-      </Routes>
-      <Footer/>
-    </div>
+            }/>
+        </Routes>
+        <Footer/>
+      </div>
+    </CurrentUserContext>
   )
 }
 

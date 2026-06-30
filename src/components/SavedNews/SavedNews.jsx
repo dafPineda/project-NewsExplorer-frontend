@@ -1,6 +1,11 @@
 import NewsCard from "../NewsCard/NewsCard"
+import { formatDate } from "../../utils/date"
+import { useContext } from "react"
 
-export default function SavedNews({username="Elise", savedArticles, onDelete}){
+import CurrentUserContext from "../../contexts/CurrentUserContext"
+
+export default function SavedNews({savedArticles, onDelete}){
+    const { userName } = useContext(CurrentUserContext)
     const totalSaved = savedArticles.length
     const uniqueKeywords = [...new Set(savedArticles.map(a => a.keyword))]
     function formatKeywordsText(keywords) {
@@ -17,7 +22,7 @@ export default function SavedNews({username="Elise", savedArticles, onDelete}){
     return(
         <section className="saved-news">
             <h3 className="saved-news__subtitle">Saved articles</h3>
-            <h2 className="saved-news__title">{`${username}, you have ${totalSaved} saved articles`}</h2>
+            <h2 className="saved-news__title">{`${userName}, you have ${totalSaved} saved articles`}</h2>
             <p className="saved-news__text">By keywords: <span className="saved-news__keywords">{formatKeywordsText(uniqueKeywords)}</span></p>
 
             <ul className="cards">

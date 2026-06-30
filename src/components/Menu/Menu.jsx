@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom"
 import { useLocation } from "react-router-dom"
+import { use, useContext } from "react"
 
-export default function Menu({isOpen, isLogged, onOpenPopup, signIn, onLogout, onClose}){
+import CurrentUserContext from "../../contexts/CurrentUserContext"
+
+export default function Menu({isOpen, onOpenPopup, signIn, onLogout, onClose}){
+    const { isLoggedIn } = useContext(CurrentUserContext)
     const location = useLocation()
     const isHome = location.pathname === "/"
     
@@ -17,7 +21,7 @@ export default function Menu({isOpen, isLogged, onOpenPopup, signIn, onLogout, o
                 <h1 className="menu__title">NewsExplorer</h1>
                 <hr className="menu__line"/>
                 <Link className="menu__text" to="/" onClick={()=>onClose()}>Home</Link>
-                {isLogged?
+                {isLoggedIn?
                     <>
                         <Link className="menu__text" to="/saved-news" onClick={()=>onClose()}>Saved articles</Link>
                         <button className={`menu__button-logout`} onClick={()=>{onClose();onLogout()}}>Log out</button> 
